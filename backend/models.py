@@ -18,7 +18,7 @@ class Account(models.Model):
 class Transaction(models.Model):
     id = models.CharField(max_length=128, primary_key=True, blank=True, unique=True, default=uuid.uuid4)
     user = models.CharField(max_length=128, default='Anonymous')
-    timestamp = models.DateTimeField(default=timezone.now())
+    timestamp = models.DateTimeField(timezone.now())
     account = models.CharField(max_length=128, default='Cash')
     type = models.CharField(max_length=8, default='debit')
     amount = models.DecimalField(max_digits=20, decimal_places=2, default=0)
